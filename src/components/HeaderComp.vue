@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <!-- лого -->
-    <router-link to="/DeliApiFront/">
+    <router-link to="/home">
       <img class="logo" src="../assets/images/logo.png" alt="logo" />
     </router-link>
     <!-- контакты -->

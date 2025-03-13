@@ -3,7 +3,7 @@ import HomePage from "../views/HomePage.vue";
 
 const routes = [
   {
-    path: "/DeliApiFront/",
+    path: "/home",
     name: "HomePage",
     component: HomePage,
   },

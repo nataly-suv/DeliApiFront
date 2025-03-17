@@ -1,6 +1,6 @@
 <template>
   <header class="footer">
-    <router-link to="/DeliApiFront/admin">
+    <router-link to="/admin">
       <p>админка</p>
     </router-link>
   </header>

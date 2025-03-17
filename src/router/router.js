@@ -4,13 +4,13 @@ import AdminPage from "../views/AdminPage.vue";
 
 const routes = [
   {
-    path: "/DeliApiFront/",
+    path: "/",
     name: "HomePage",
     component: HomePage,
   },
   // Добавьте другие маршруты по мере необходимости
   {
-    path: "/DeliApiFront/admin",
+    path: "/admin",
     name: "AdminPage",
     component: AdminPage,
   },

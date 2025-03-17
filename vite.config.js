@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/nataly-suv-deliapifront-ccc9.twc1.net/",
+  // base: "/DeliApiFront/",
   plugins: [vue()],
 })

@@ -77,7 +77,7 @@ export default {
       };
       // console.log(this.dataForm);
 
-      const res = await fetch("https://75c818a8411c0672.mokky.dev/superuser", {
+      const res = await fetch("https://social-brooms-laugh.loca.lt", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

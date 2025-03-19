@@ -71,13 +71,13 @@ export default {
 
       this.dataForm = {
         is_super_user: false,
-        tg_id: null,
+        tg_id: 0,
         email: this.email,
         password: this.password,
       };
       // console.log(this.dataForm);
 
-      const res = await fetch("https://social-brooms-laugh.loca.lt", {
+      const res = await fetch("https://brown-bees-punch.loca.lt/docs#/API/register_user_admin_api_auth_register_admin_post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

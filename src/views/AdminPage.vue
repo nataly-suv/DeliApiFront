@@ -2,7 +2,7 @@
   <section class="adminPage">
     <h1>Админка</h1>
     <form class="form" @submit="postForm">
-      <label class="label"
+      <!-- <label class="label"
         >Имя пользователя:
         <input
           class="input"
@@ -11,7 +11,7 @@
           name="username"
           required
           v-model.trim="username"
-      /></label>
+      /></label> -->
 
       <label class="label"
         >Email:
@@ -57,9 +57,10 @@ export default {
 
   data() {
     return {
-      username: "",
+      // username: "",
       email: "",
       password: "",
+      // is_super_user: false,
       dataForm: {},
     };
   },
@@ -69,11 +70,12 @@ export default {
       event.preventDefault();
 
       this.dataForm = {
-        username: this.username,
+        is_super_user: false,
+        tg_id: null,
         email: this.email,
         password: this.password,
       };
-      console.log(this.dataForm);
+      // console.log(this.dataForm);
 
       const res = await fetch("https://75c818a8411c0672.mokky.dev/superuser", {
         method: "POST",

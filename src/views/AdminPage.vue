@@ -78,7 +78,7 @@ export default {
       // console.log(this.dataForm);
 
       const res = await fetch(
-        "https://brown-bees-punch.loca.lt/docs#/API/register_user_admin_api_auth_register_admin_post",
+        "https://lazy-buckets-teach.loca.lt/api/auth/register_admin",
         {
           method: "POST",
           headers: {

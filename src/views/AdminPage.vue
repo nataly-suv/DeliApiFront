@@ -77,17 +77,14 @@ export default {
       };
       // console.log(this.dataForm);
 
-      const res = await fetch(
-        "https://lazy-buckets-teach.loca.lt/api/auth/register_admin",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify(this.dataForm),
-        }
-      );
+      const res = await fetch("https://75c818a8411c0672.mokky.dev/superuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(this.dataForm),
+      });
       const data = await res.json();
       console.log(data);
 

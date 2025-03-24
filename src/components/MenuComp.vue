@@ -19,14 +19,25 @@
         </div>
       </div>
     </div>
+    <!-- модальное окно -->
     <Teleport to="body">
       <div v-if="open" class="modalWindow">
         <div class="modal">
+          <img
+            src="../assets/images/close.png"
+            @click="open = false"
+            class="modal__close"
+            alt="close"
+          />
+
+          <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" />
           <p>{{ searchItem.name }}</p>
-          <button @click="open = false">Закрыть</button>
+          <p>Состав: {{ searchItem.description }}</p>
+          <p>Стоимость за 100 гр.: {{ searchItem.price }} руб.</p>
         </div>
       </div>
     </Teleport>
+    <!--  -->
   </section>
 </template>
 
@@ -48,6 +59,7 @@ export default {
   methods: {
     ...mapActions("menuModule", ["fetchMenu"]),
     ...mapActions("categoriesModule", ["fetchCategories"]),
+
     filteredByCategories(id) {
       return this.allMenu.filter((item) => item.category_id === id);
     },
@@ -152,14 +164,33 @@ export default {
 }
 
 .modal {
-  background: #e29696;
+  background: white;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 10px;
+
   position: fixed;
   z-index: 999;
   top: 20%;
   left: 50%;
-  width: 300px;
-  margin-left: -150px;
-  height: 300px;
+  width: 500px;
+  /* margin-left: -150px; */
+  /* height: 300px; */
+  transform: translate(-50%, -20%);
+}
+
+.modal__close {
+  width: 20px;
+}
+
+.modal__close:hover {
+  transform: rotate(90deg);
+  transition: 1s;
+  /* transform-origin: center center; */
+}
+
+.modal__img {
+  width: 100%;
 }
 
 @media (max-width: 769px) {

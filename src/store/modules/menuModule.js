@@ -15,7 +15,9 @@ export default {
   },
   actions: {
     async fetchMenu(ctx) {
+      // const res = await fetch("https://75c818a8411c0672.mokky.dev/menu");
       const res = await fetch("https://75c818a8411c0672.mokky.dev/menu");
+
       const data = await res.json();
 
       //   ctx - это контекст, в него передаем mutations и полученные данные

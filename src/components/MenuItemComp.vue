@@ -1,6 +1,7 @@
 <template>
   <div class="dishes__item">
-    <img class="item__img" :src="item_data.imgUrl" alt="dishes__item" />
+    <!-- <img class="item__img" :src="item_data.imgUrl" alt="dishes__item" /> -->
+    <img class="item__img" src="../assets/images/test.jpg" alt="test" />
     <h1 class="item__name">{{ item_data.name }}</h1>
     <div class="item__bottom">
       <div class="item__priceInfo">
@@ -118,5 +119,4 @@ export default {
     /* gap: 30px; */
   }
 }
-
 </style>

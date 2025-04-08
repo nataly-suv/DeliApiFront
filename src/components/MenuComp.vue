@@ -1,7 +1,7 @@
 <template>
   <section class="menu">
     <h1 class="title">Наше меню</h1>
-    <!-- навишация категорий -->
+    <!-- навигация категорий -->
     <nav class="category">
       <div v-for="category in allCategories" :key="category.id">
         <button class="category__text">{{ category.name }}</button>
@@ -23,17 +23,26 @@
     <Teleport to="body">
       <div v-if="open" class="modalWindow">
         <div class="modal">
-          <img
-            src="../assets/images/close.png"
-            @click="open = false"
-            class="modal__close"
-            alt="close"
-          />
+          <div class="modal__close_box">
+            <img
+              src="../assets/images/close.png"
+              @click="open = false"
+              class="modal__close"
+              alt="close"
+            />
+          </div>
 
-          <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" />
-          <p>{{ searchItem.name }}</p>
-          <p>Состав: {{ searchItem.description }}</p>
-          <p>Стоимость за 100 гр.: {{ searchItem.price }} руб.</p>
+          <!-- <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" /> -->
+          <img class="modal__img" src="../assets/images/test.jpg" alt="test" />
+          <p class="modal__name">{{ searchItem.name }}</p>
+          <p class="modal__description">
+            <span class="modal__description_title">Состав:</span>
+            {{ searchItem.description }}
+          </p>
+          <p class="modal__price">
+            Стоимость за 100 гр.:
+            <span class="modal__price_num">{{ searchItem.price }} руб.</span>
+          </p>
         </div>
       </div>
     </Teleport>
@@ -153,6 +162,32 @@ export default {
   }
 }
 
+@media (max-width: 769px) {
+  .dishes {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 500px) {
+  .dishes {
+    display: grid;
+    grid-template-columns: repeat(1, 80%);
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 400px) {
+  .dishes {
+    display: grid;
+    grid-template-columns: repeat(1, 90%);
+    justify-content: center;
+  }
+}
+
+/*  */
+/* модальное окно */
 .modalWindow {
   z-index: 888;
   position: fixed;
@@ -177,6 +212,31 @@ export default {
   /* margin-left: -150px; */
   /* height: 300px; */
   transform: translate(-50%, -20%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 620px) {
+    width: 450px;
+  }
+
+  @media (max-width: 520px) {
+    width: 370px;
+  }
+
+  @media (max-width: 420px) {
+    width: 300px;
+  }
+  @media (max-width: 320px) {
+    width: 220px;
+  }
+}
+
+.modal__close_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
 
 .modal__close {
@@ -193,27 +253,44 @@ export default {
   width: 100%;
 }
 
-@media (max-width: 769px) {
-  .dishes {
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    justify-content: space-around;
-  }
+.modal__name {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 500px) {
-  .dishes {
-    display: grid;
-    grid-template-columns: repeat(1, 80%);
-    justify-content: space-around;
-  }
+.modal__description,
+.modal__price {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 400px) {
-  .dishes {
-    display: grid;
-    grid-template-columns: repeat(1, 90%);
-    justify-content: center;
+.modal__description_title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modal__price_num {
+  font-size: 18px;
+  font-weight: 700;
+  color: #68904d;
+}
+
+@media (max-width: 420px) {
+  .modal__name {
+    font-size: 16px;
+  }
+
+  .modal__description,
+  .modal__price {
+    font-size: 14px;
+  }
+
+  .modal__price_num {
+    font-size: 16px;
   }
 }
 </style>

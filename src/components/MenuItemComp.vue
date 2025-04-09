@@ -2,13 +2,15 @@
   <div class="dishes__item">
     <!-- <img class="item__img" :src="item_data.imgUrl" alt="dishes__item" /> -->
     <img class="item__img" src="../assets/images/test.jpg" alt="test" />
-    <h1 class="item__name">{{ item_data.name }}</h1>
-    <div class="item__bottom">
-      <div class="item__priceInfo">
-        <p class="item__price">{{ item_data.price }} руб.</p>
-        <p class="item__weight">за 100 гр.</p>
+    <div class="item_desc">
+      <h1 class="item__name">{{ item_data.name }}</h1>
+      <div class="item__bottom">
+        <div class="item__priceInfo">
+          <p class="item__price">{{ item_data.price }} руб.</p>
+          <p class="item__weight">за 100 гр.</p>
+        </div>
+        <button class="item__btn">+</button>
       </div>
-      <button class="item__btn">+</button>
     </div>
   </div>
 </template>
@@ -47,9 +49,9 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
-  /* gap: 30px; */
+  gap: 30px;
 }
 
 .dishes__item:hover {
@@ -60,6 +62,16 @@ export default {
   width: 100%;
 }
 
+.item_desc {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 30px; */
+}
+
 .item__name {
   font-size: 18px;
   font-weight: 600;
@@ -67,8 +79,6 @@ export default {
 }
 
 .item__bottom {
-  padding-top: 40px;
-
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -98,6 +108,7 @@ export default {
 
 .item__btn {
   padding: 5px 10px;
+  box-sizing: border-box;
   background: #68904d;
   border: none;
   border-radius: 5px;
@@ -115,8 +126,46 @@ export default {
 
 @media (max-width: 500px) {
   .dishes__item {
-    min-height: 390px;
-    /* gap: 30px; */
+    width: 100%;
+    min-height: auto;
+
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .item__img {
+    width: 40%;
+  }
+
+  .item_desc {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .item__name {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .item__bottom {
+    width: 95%;
+  }
+
+  .item__price {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .item__btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
 </style>

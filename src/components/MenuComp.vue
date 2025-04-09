@@ -104,7 +104,7 @@ export default {
     width: 90%;
   }
   @media (max-width: 1130px) {
-    width: 96%;
+    width: 90%;
   }
 }
 
@@ -166,23 +166,25 @@ export default {
   .dishes {
     display: grid;
     grid-template-columns: repeat(2, 45%);
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
 @media (max-width: 500px) {
   .dishes {
     display: grid;
-    grid-template-columns: repeat(1, 80%);
-    justify-content: space-around;
+    grid-template-columns: repeat(1, 100%);
+    justify-content: space-between;
+    grid-row-gap: 20px;
   }
 }
 
 @media (max-width: 400px) {
   .dishes {
     display: grid;
-    grid-template-columns: repeat(1, 90%);
+    grid-template-columns: repeat(1, 100%);
     justify-content: center;
+    grid-row-gap: 20px;
   }
 }
 
@@ -204,6 +206,10 @@ export default {
   padding: 20px;
   border-radius: 10px;
 
+  overflow-y: auto;
+  scrollbar-color: #68904d rgba(234, 234, 235, 0.7);
+  scrollbar-width: thin; /* толщина */
+
   position: fixed;
   z-index: 999;
   top: 20%;
@@ -222,14 +228,18 @@ export default {
   }
 
   @media (max-width: 520px) {
+    top: 30%;
     width: 370px;
+    max-height: 70vh;
   }
 
   @media (max-width: 420px) {
     width: 300px;
+    max-height: 70vh;
   }
   @media (max-width: 320px) {
     width: 220px;
+    max-height: 70vh;
   }
 }
 

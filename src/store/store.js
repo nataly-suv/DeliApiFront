@@ -7,7 +7,7 @@ import { createStore } from "vuex";
 
 import menuModule from "./modules/menuModule.js";
 import categoriesModule from "./modules/categoriesModule.js";
-
+import cartModule from "./modules/cartModule.js";
 
 const store = createStore({
   state: {
@@ -17,7 +17,7 @@ const store = createStore({
     // здесь мутации
   },
   actions: {
-    // здесь действия 
+    // здесь действия
   },
   getters: {
     // здесь геттеры
@@ -26,11 +26,11 @@ const store = createStore({
     // здесь модули
     menuModule: menuModule,
     categoriesModule: categoriesModule,
+    cartModule: cartModule,
   },
 });
 
 export default store;
-
 
 // export default new Vuex.Store({
 //   state: {

@@ -24,6 +24,16 @@ export default {
           // "mode": "no-cors",
         },
       });
+      // const res = await fetch("https://deliapi.ru/api/category", {
+      //   method: "GET",
+      //   headers: {
+      //     "Accept": "application/json",
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "*",
+      //     // "mode": "no-cors",
+      //   },
+      // });
+
       const data = await res.json();
 
       //   ctx - это контекст, в него передаем mutations и полученные данные

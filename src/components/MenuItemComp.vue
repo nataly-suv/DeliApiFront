@@ -1,7 +1,7 @@
 <template>
   <div class="dishes__item">
-    <!-- <img class="item__img" :src="item_data.imgUrl" alt="dishes__item" /> -->
-    <img class="item__img" src="../assets/images/test.jpg" alt="test" />
+    <img class="item__img" :src="item_data.imgUrl" alt="dishes__item" />
+    <!-- <img class="item__img" src="../assets/images/test.jpg" alt="test" /> -->
     <div class="item_desc">
       <h1 class="item__name">{{ item_data.name }}</h1>
       <div class="item__bottom">
@@ -9,7 +9,7 @@
           <p class="item__price">{{ item_data.price }} руб.</p>
           <p class="item__weight">за 100 гр.</p>
         </div>
-        <button class="item__btn">+</button>
+        <button class="item__btn" @click="addToCartOn">+</button>
       </div>
     </div>
   </div>
@@ -17,6 +17,8 @@
 
 <!-- Скрипт -->
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "MenuItemComp",
   components: {},
@@ -33,7 +35,21 @@ export default {
     return {};
   },
 
-  methods: {},
+  methods: {
+    addToCartOn() {
+      this.$store.dispatch("cartModule/addToCart", this.item_data);
+      // console.log(this.item_data);
+      // console.log(this.cartGetters);
+    },
+  },
+
+  computed: {
+    ...mapGetters("cartModule", ["cartGetters"]),
+  },
+
+  // mounted() {
+  //   this.$set(this.item_data, "quantity", 1);
+  // },
 };
 </script>
 

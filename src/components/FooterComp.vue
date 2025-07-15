@@ -1,7 +1,7 @@
 <template>
   <header class="footer">
     <router-link to="/admin">
-      <p>админка</p>
+      <p class="text">админка</p>
     </router-link>
   </header>
 </template>
@@ -24,5 +24,11 @@ export default {
 <style scoped>
 .footer {
   margin-top: 100px;
+  height: 150px;
+  background-color: rgb(54, 54, 54);
+}
+
+.text {
+  color: white;
 }
 </style>

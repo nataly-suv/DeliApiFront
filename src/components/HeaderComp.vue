@@ -114,8 +114,7 @@ export default {
   }
 
   .text {
-  font-size: 14px;
+    font-size: 14px;
+  }
 }
-}
-
 </style>

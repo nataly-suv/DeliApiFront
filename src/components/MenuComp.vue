@@ -1,24 +1,37 @@
 <template>
-  <section class="menu">
+  <section>
     <h1 class="title">Наше меню</h1>
     <!-- навигация категорий -->
-    <nav class="category">
-      <div v-for="category in allCategories" :key="category.id">
-        <button class="category__text">{{ category.name }}</button>
-      </div>
-    </nav>
-    <!-- отображение меню по категориям -->
-    <div class="dishes__type">
-      <div v-for="category in allCategories" :key="category.id">
-        <h2 class="dishes__category">{{ category.name }}</h2>
+    <div class="category-cart">
+      <nav class="category">
+        <div v-for="category in allCategories" :key="category.id">
+          <button class="category__text">{{ category.name }}</button>
+        </div>
+      </nav>
+      <router-link to="/cart">
+        <img src="../assets/images/cart.png" class="cart-img" alt="cart" />
+      </router-link>
+    </div>
 
-        <div class="dishes">
-          <div v-for="item in filteredByCategories(category.id)" :key="item.id">
-            <MenuItemComp :item_data="item" @click="searchIdClick(item.id)" />
+    <!-- отображение меню по категориям -->
+    <div class="menu__dishes">
+      <div class="dishes__type">
+        <div v-for="category in allCategories" :key="category.id">
+          <h2 class="dishes__category">{{ category.name }}</h2>
+          <div class="dishes">
+            <div
+              v-for="item in filteredByCategories(category.id)"
+              :key="item.id"
+            >
+              <MenuItemComp :item_data="item" />
+              <!-- @click="searchIdClick(item.id)" -->
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!--  -->
     <!-- модальное окно -->
     <Teleport to="body">
       <div v-if="open" class="modalWindow">
@@ -31,7 +44,6 @@
               alt="close"
             />
           </div>
-
           <!-- <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" /> -->
           <img class="modal__img" src="../assets/images/test.jpg" alt="test" />
           <p class="modal__name">{{ searchItem.name }}</p>
@@ -46,7 +58,6 @@
         </div>
       </div>
     </Teleport>
-    <!--  -->
   </section>
 </template>
 
@@ -95,28 +106,66 @@ export default {
 
 <!-- стили -->
 <style scoped>
-.menu {
-  width: 80%;
-  margin: 0 auto;
-  padding: 30px 0;
+.menu__header {
+  background-color: #fff;
+  border-bottom: 1px solid rgb(163, 163, 163);
+  padding-left: 10%;
 
   @media (max-width: 1370px) {
-    width: 90%;
+    padding-left: 5%;
   }
   @media (max-width: 1130px) {
-    width: 90%;
+    padding-left: 5%;
   }
 }
 
 .title {
   font-size: 40px;
   font-weight: 700;
-  color: #202020;
+  /* color: #202020; */
+
+  padding-left: 10%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @media (max-width: 1370px) {
+    padding-left: 5%;
+  }
+  @media (max-width: 1130px) {
+    padding-left: 5%;
+  }
+}
+
+.category-cart {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  background-color: #fff;
+  /* border-bottom: 1px groove  rgb(163, 163, 163); */
+  box-shadow: 0px 10px 8px rgb(224, 224, 224);
+  box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1370px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  @media (max-width: 1130px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 .category {
-  padding: 20px 0;
-
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -131,6 +180,23 @@ export default {
   font-size: 20px;
   font-weight: 500;
   color: #202020;
+}
+
+.cart-img {
+  width: 30px;
+}
+
+.menu__dishes {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px 0;
+
+  @media (max-width: 1370px) {
+    width: 90%;
+  }
+  @media (max-width: 1130px) {
+    width: 90%;
+  }
 }
 
 .dishes__type {

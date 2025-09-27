@@ -10,23 +10,6 @@
 <script setup>
 import HeaderComp from "./components/HeaderComp.vue";
 import FooterComp from "./components/FooterComp.vue";
-
-export default {
-  name: "App",
-  mounted() {
-    const tg = window.Telegram.WebApp;
-    const user = tg.initDataUnsafe.user;
-    if (user) {
-      console.log("User ID:", user.id);
-      console.log("Username:", user.username);
-      // Записать в Vuex для глобального доступа
-      this.$store.dispatch("cartModule/setUserData", {
-        userID: user.id,
-        username: user.username,
-      });
-    }
-  },
-};
 </script>
 
 <!-- стили -->

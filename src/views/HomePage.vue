@@ -38,17 +38,17 @@ export default {
     //   }
     // }
 
-    const tg = window.Telegram.WebApp;
-    const user = tg.initDataUnsafe.user;
-    if (user) {
-      console.log("User ID:", user.id);
-      console.log("Username:", user.username);
-      // Записать в Vuex для глобального доступа
-      this.$store.dispatch("cartModule/setUserData", {
-        userID: user.id,
-        username: user.username,
-      });
-    }
+    // const tg = window.Telegram.WebApp;
+    // const user = tg.initDataUnsafe.user;
+    // if (user) {
+    //   console.log("User ID:", user.id);
+    //   console.log("Username:", user.username);
+    //   // Записать в Vuex для глобального доступа
+    //   this.$store.dispatch("cartModule/setUserData", {
+    //     userID: user.id,
+    //     username: user.username,
+    //   });
+    // }
   },
 };
 </script>

@@ -105,6 +105,7 @@ export default {
     addressForm({ dispatch, commit }, address) {
       commit("ADDRESS_FORM", address);
 
+      dispatch("sendUserData");
       dispatch("submitOrder");
     },
 

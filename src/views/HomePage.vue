@@ -12,13 +12,31 @@ import MenuComp from "../components/MenuComp.vue";
 
 export default {
   name: "HomePage",
-  components: {BannerComp, MenuComp},
+  components: { BannerComp, MenuComp },
 
   data() {
     return {};
   },
 
   methods: {},
+
+  mounted() {
+    // Проверяем, что Telegram WebApp API доступен
+    if (
+      window.Telegram &&
+      window.Telegram.WebApp &&
+      window.Telegram.WebApp.initDataUnsafe
+    ) {
+      const user = window.Telegram.WebApp.initDataUnsafe.user;
+      if (user) {
+        const payload = {
+          userID: user.id,
+          username: user.username || null,
+        };
+        this.$store.commit("cartModule/setUserData", payload);
+      }
+    }
+  },
 };
 </script>
 

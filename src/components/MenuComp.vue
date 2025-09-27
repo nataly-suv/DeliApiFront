@@ -22,8 +22,8 @@
             <div
               v-for="item in filteredByCategories(category.id)"
               :key="item.id"
-            >
-              <MenuItemComp :item_data="item" />
+            > 
+              <ProductsItemComp :item_data="item" />
               <!-- @click="searchIdClick(item.id)" -->
             </div>
           </div>
@@ -33,7 +33,7 @@
 
     <!--  -->
     <!-- модальное окно -->
-    <Teleport to="body">
+    <!-- <Teleport to="body">
       <div v-if="open" class="modalWindow">
         <div class="modal">
           <div class="modal__close_box">
@@ -44,7 +44,7 @@
               alt="close"
             />
           </div>
-          <!-- <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" /> -->
+         <img :src="searchItem.imgUrl" class="modal__img" alt="searchItem" /> - закоментировать
           <img class="modal__img" src="../assets/images/test.jpg" alt="test" />
           <p class="modal__name">{{ searchItem.name }}</p>
           <p class="modal__description">
@@ -57,17 +57,17 @@
           </p>
         </div>
       </div>
-    </Teleport>
+    </Teleport> -->
   </section>
 </template>
 
 <!-- Скрипт -->
 <script>
 import { mapGetters, mapActions } from "vuex";
-import MenuItemComp from "./MenuItemComp.vue";
+import ProductsItemComp from "./ProductsItemComp.vue";
 export default {
   name: "MenuComp",
-  components: { MenuItemComp },
+  components: { ProductsItemComp },
 
   data() {
     return {
@@ -77,7 +77,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions("menuModule", ["fetchMenu"]),
+    ...mapActions("productsModule", ["fetchMenu"]),
     ...mapActions("categoriesModule", ["fetchCategories"]),
 
     filteredByCategories(id) {
@@ -92,7 +92,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters("menuModule", ["allMenu"]),
+    ...mapGetters("productsModule", ["allMenu"]),
     ...mapGetters("categoriesModule", ["allCategories"]),
   },
 
@@ -106,7 +106,7 @@ export default {
 
 <!-- стили -->
 <style scoped>
-.menu__header {
+/* .menu__header {
   background-color: #fff;
   border-bottom: 1px solid rgb(163, 163, 163);
   padding-left: 10%;
@@ -117,7 +117,7 @@ export default {
   @media (max-width: 1130px) {
     padding-left: 5%;
   }
-}
+} */
 
 .title {
   font-size: 40px;
@@ -217,6 +217,7 @@ export default {
   grid-template-columns: repeat(4, 23%);
   justify-content: space-between;
   grid-row-gap: 30px;
+  grid-auto-rows: 1fr;
 
   margin-bottom: 50px;
 }
@@ -231,7 +232,7 @@ export default {
 @media (max-width: 769px) {
   .dishes {
     display: grid;
-    grid-template-columns: repeat(2, 45%);
+    grid-template-columns: repeat(2, 48%);
     justify-content: space-between;
   }
 }
@@ -239,19 +240,19 @@ export default {
 @media (max-width: 500px) {
   .dishes {
     display: grid;
-    grid-template-columns: repeat(1, 100%);
+    grid-template-columns: repeat(2, 48%);
     justify-content: space-between;
     grid-row-gap: 20px;
   }
 }
 
 @media (max-width: 400px) {
-  .dishes {
+  /* .dishes {
     display: grid;
     grid-template-columns: repeat(1, 100%);
     justify-content: center;
     grid-row-gap: 20px;
-  }
+  } */
 }
 
 /*  */

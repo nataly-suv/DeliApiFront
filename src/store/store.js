@@ -5,7 +5,7 @@
 
 import { createStore } from "vuex";
 
-import menuModule from "./modules/menuModule.js";
+import productsModule from "./modules/productsModule.js";
 import categoriesModule from "./modules/categoriesModule.js";
 import cartModule from "./modules/cartModule.js";
 
@@ -24,7 +24,7 @@ const store = createStore({
   },
   modules: {
     // здесь модули
-    menuModule: menuModule,
+    productsModule: productsModule,
     categoriesModule: categoriesModule,
     cartModule: cartModule,
   },

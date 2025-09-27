@@ -64,8 +64,9 @@ export default {
 
     // мутация для получения данных телеграм
     SET_USER_DATA(state, payload) {
-      state.userData.userID = payload.userID;
-      state.userData.username = payload.username;
+      // state.userData.userID = payload.userID;
+      // state.userData.username = payload.username;
+      state.userData = payload;
     },
   },
 
@@ -85,6 +86,12 @@ export default {
     //     //   ctx - это контекст, в него передаем mutations и полученные данные
     //     ctx.commit("updateCategories", data);
     //   },
+
+    //попытка
+    setUserData({ commit, state }, payload) {
+      commit("SET_USER_DATA", payload);
+      // event.stopPropagation();
+    },
 
     // добавление товара в корзину. State меняем через мутацию ADD_TO_CART
     addToCart({ commit, state }, menu_item) {

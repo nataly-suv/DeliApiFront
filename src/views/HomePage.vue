@@ -23,19 +23,31 @@ export default {
 
   mounted() {
     // Проверяем, что Telegram WebApp API доступен
-    if (
-      window.Telegram &&
-      window.Telegram.WebApp &&
-      window.Telegram.WebApp.initDataUnsafe
-    ) {
-      const user = window.Telegram.WebApp.initDataUnsafe.user;
-      if (user) {
-        const payload = {
-          userID: user.id,
-          username: user.username || null,
-        };
-        this.$store.commit("cartModule/SET_USER_DATA", payload);
-      }
+    // if (
+    //   window.Telegram &&
+    //   window.Telegram.WebApp &&
+    //   window.Telegram.WebApp.initDataUnsafe
+    // ) {
+    //   const user = window.Telegram.WebApp.initDataUnsafe.user;
+    //   if (user) {
+    //     const payload = {
+    //       userID: user.id,
+    //       username: user.username || null,
+    //     };
+    //     this.$store.commit("cartModule/SET_USER_DATA", payload);
+    //   }
+    // }
+
+    const tg = window.Telegram.WebApp;
+    const user = tg.initDataUnsafe.user;
+    if (user) {
+      console.log("User ID:", user.id);
+      console.log("Username:", user.username);
+      // Записать в Vuex для глобального доступа
+      this.$store.dispatch("cartModule/setUserData", {
+        userID: user.id,
+        username: user.username,
+      });
     }
   },
 };

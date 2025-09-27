@@ -34,7 +34,7 @@ export default {
           userID: user.id,
           username: user.username || null,
         };
-        this.$store.commit("cartModule/setUserData", payload);
+        this.$store.commit("cartModule/SET_USER_DATA", payload);
       }
     }
   },

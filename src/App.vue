@@ -12,23 +12,8 @@ import HeaderComp from "./components/HeaderComp.vue";
 import FooterComp from "./components/FooterComp.vue";
 
 export default {
+  name: "App",
   mounted() {
-    // Проверяем, что Telegram WebApp API доступен
-    // if (
-    //   window.Telegram &&
-    //   window.Telegram.WebApp &&
-    //   window.Telegram.WebApp.initDataUnsafe
-    // ) {
-    //   const user = window.Telegram.WebApp.initDataUnsafe.user;
-    //   if (user) {
-    //     const payload = {
-    //       userID: user.id,
-    //       username: user.username || null,
-    //     };
-    //     this.$store.commit("cartModule/SET_USER_DATA", payload);
-    //   }
-    // }
-
     const tg = window.Telegram.WebApp;
     const user = tg.initDataUnsafe.user;
     if (user) {

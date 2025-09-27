@@ -7,6 +7,7 @@
 
 <!-- Скрипт -->
 <script>
+import { createLogger } from "vuex/dist/vuex.cjs.js";
 import BannerComp from "../components/BannerComp.vue";
 import MenuComp from "../components/MenuComp.vue";
 

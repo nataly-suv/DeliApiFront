@@ -90,7 +90,6 @@ export default {
     addToCart({ commit, state }, menu_item) {
       commit("ADD_TO_CART", menu_item);
       // event.stopPropagation();
-      console.log(state.cart);
     },
 
     // увеличение количества
@@ -111,15 +110,17 @@ export default {
 
     async sendUserData({ state }) {
       try {
+        console.log(state.userData);
         const response = await fetch(
           "https://75c818a8411c0672.mokky.dev/userData",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              userID: state.userData.userID,
-              username: state.userData.username,
-            }),
+            body: JSON.stringify(state.userData),
+            // body: JSON.stringify({
+            //   userID: state.userData.userID,
+            //   username: state.userData.username,
+            // }),
           }
         );
         if (!response.ok) throw new Error("Ошибка отправки userData");
